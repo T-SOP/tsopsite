@@ -3,7 +3,7 @@ TSOP 스터디 사이트
 
 
 1. 사용 기술
-========
+--------
 
 UI
 * AngularJS  ( Single APP )
@@ -12,14 +12,19 @@ UI
 Server
 
 * PlayFrameWork 2 for Scala
-* Mysql ( etc... )
+* Mysql
 
 2. 서버 정보
-========
+--------
 
 play 설치 경로
 * /usr/local/play-2.1.2
 * /etc/profile 에서 경로 등록 하였음
+
+mysql 설치 경로 및 계정
+* /usr/bin/mysql
+* 계정 : root  ( 비번은 시스템 계정과 동일 )
+* DataBase Name : tsop 
 
 TSOP root 경로
 * /usr/local/tsop
@@ -29,7 +34,7 @@ TSOP 페이지 경로
      
      
 3. 업무 분담
-========
+--------
 
 1) Layout 전체 ( 매인과 Sub )
 * 공통
@@ -44,5 +49,5 @@ TSOP 페이지 경로
 * 최민기
 
 4. 설계 자료 
-========
+--------
 ./document/design 파일 참조
