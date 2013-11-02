@@ -1,5 +1,7 @@
 @(message: String)
 
+@helper.requireJs(core = routes.Assets.at("javascripts/require.js").url, module = routes.Assets.at("javascripts/main").url)
+
 @main("Welcome to Play") {
 
     @play20.welcome(message)
