@@ -138,7 +138,9 @@
 						 </div>
 				 </div>
 				 <!-- this is end login Modal -->
+		@helper.requireJs(core = routes.Assets.at("javascripts/require.js").url, module = routes.Assets.at("javascripts/main").url)
 		 </body>
+
 		 <script type="text/javascript">
 				 function onSignInCallback(authResult){
 						 console.log(authResult);
