@@ -26,7 +26,7 @@ object Task {
     DB.withConnection { implicit c =>
       SQL("insert into task (label) values ({label})").on(
         'label -> label
-      ).excuteUpdate()
+      ).executeUpdate()
     }
   }
 
@@ -34,7 +34,7 @@ object Task {
     DB.withConnection { implicit c =>
       SQL("delete from task where id = {id}").on(
         'id -> id
-      ).excuteUpdate()
+      ).executeUpdate()
     }
   }
 }
