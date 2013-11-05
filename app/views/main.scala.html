@@ -140,9 +140,7 @@
 						 </div>
 				 </div>
 				 <!-- this is end login Modal -->
-		@helper.requireJs(core = routes.Assets.at("javascripts/require.js").url, module = routes.Assets.at("javascripts/main").url)
 		 </body>
-
 		 <script type="text/javascript">
 				 function onSignInCallback(authResult){
 						 console.log(authResult);
@@ -151,7 +149,7 @@
 						 var scope = angular.element(document.getElementsByClassName('login')[0]).scope();
 						 scope.login(authResult);
 
-						 document.getElementsByClassName('login_modal_submit')[0].click();
+						// document.getElementsByClassName('login_modal_submit')[0].click();
 						document.getElementsByClassName('login_modal_close')[0].click()
 				 }
 		 </script>

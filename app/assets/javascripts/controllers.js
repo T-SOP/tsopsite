@@ -15,6 +15,7 @@ define(function() {
 						console.log('tsop');
 						$scope.test = 'tsop';
 						$scope.login = function(authResult){
+								console.log(authResult);
 								console.log('login click');
 						}
 						$scope.logout = function(){
