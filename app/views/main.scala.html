@@ -74,7 +74,7 @@
 										 data-callback="onSignInCallback"
 										 data-theme="dark"
 										 data-cookiepolicy="single_host_origin">
-								 </button> <a href="#loginModal" role="button" class="pure-button pure-button-secondary" data-toggle="modal" >Login</a>
+								 </button> <a href="#loginModal" role="button" class="pure-button pure-button-secondary login" data-toggle="modal" >Login</a>
 												 <!--logout 버튼은 ng-show= !logined 
 												 login 버튼은 ng-show = logined 추가 시 버튼 사라짐-->
 												 <button ng-click="logout()" class="pure-button pure-button-warning logout">logout</button>
@@ -147,6 +147,10 @@
 				 function onSignInCallback(authResult){
 						 console.log(authResult);
 						 // close login modal button;
+						 
+						 var scope = angular.element(document.getElementsByClassName('login')[0]).scope();
+						 scope.login(authResult);
+
 						 document.getElementsByClassName('login_modal_submit')[0].click();
 						document.getElementsByClassName('login_modal_close')[0].click()
 				 }
