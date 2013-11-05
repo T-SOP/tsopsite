@@ -8,6 +8,10 @@ define(function() {
     	
     	module.controller('TsopCtrl', ['$scope', function($scope) {
     		
+
+			//this is credentail var
+
+			$scope.logined = true;
     		console.log('tsop');
     		$scope.test = 'tsop';
     		$scope.login = function(){
