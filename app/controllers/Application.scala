@@ -3,6 +3,8 @@ package controllers
 import play.api._
 import play.api.mvc._
 
+import models.Task
+
 object Application extends Controller {
 
   val CLIENT_ID = "425874550737-rcq17uufrfphfdpl1sjdpb57331cgor4.apps.googleusercontent.com";
@@ -10,5 +12,19 @@ object Application extends Controller {
   def index = Action {
     Ok(views.html.index(CLIENT_ID))
   }
+  
+  def tasks = Action {
+    println(Task.all());
 
+    Ok(views.html.index(CLIENT_ID))
+  }
+
+  def newTask = Action { 
+
+  }
+
+  def deleteTask(id: Long) = Action {
+    Task.delete(id)
+    Redirect(routes.Application.tasks)
+  }
 }

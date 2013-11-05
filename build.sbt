@@ -3,14 +3,15 @@ name := "tsop"
 version := "1.0-SNAPSHOT"
 
 libraryDependencies ++= Seq(
-  jdbc,
-  anorm,
-  cache
-)     
+				jdbc,
+				anorm,
+				cache,
+				"mysql" % "mysql-connector-java" % "5.1.21"
+				)     
 
-requireJs += "main.js"
+		requireJs += "main.js"
 
-requireJsShim += "main.js"
+		requireJsShim += "main.js"
 
 
-play.Project.playScalaSettings
+		play.Project.playScalaSettings
