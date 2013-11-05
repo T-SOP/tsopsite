@@ -19,9 +19,7 @@ object Application extends Controller {
     Ok(views.html.index(CLIENT_ID))
   }
 
-  def newTask = Action { 
-
-  }
+  def newTask = TODO
 
   def deleteTask(id: Long) = Action {
     Task.delete(id)

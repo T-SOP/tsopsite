@@ -8,7 +8,14 @@ define(function() {
 
     		module.factory('HomeSrvc', function() {
 	    		return function() {
-	    			console.log('ggg');
+					return {
+						login : function($http){
+						
+						},
+						logout : function($http){
+						
+						}
+					}
 	    		}
 	    	})
     	

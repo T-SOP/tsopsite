@@ -26,15 +26,10 @@ object Task {
     DB.withConnection { implicit c =>
       SQL("insert into task (label) values ({label})").on(
         'label -> label
-      ).excuteUpdate()
+      ).executeUpdate()
     }
   }
 
   def delete(id: Long) {
-    DB.withConnection { implicit c =>
-      SQL("delete from task where id = {id}").on(
-        'id -> id
-      ).excuteUpdate()
-    }
   }
 }
