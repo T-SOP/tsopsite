@@ -6,6 +6,7 @@ define(function() {
 
 		return function( module ){
 
+				// Tsop Main Ctrl
 				module.controller('TsopCtrl', ['$scope','HomeSrvc', function($scope,HomeSevc) {
 
 
@@ -28,6 +29,16 @@ define(function() {
 				module.controller('RegistCtrl',['$scope',function($scope){
 					console.log('regist');
 				}]);
+				// T-sop Link Ctlr
+				module.controller('TsopSnsLinkCtrl', ['$scope', function($scope) {
+					
+					$scope.snslist = [{name:'FaceBook', url:'https://www.facebook.com/groups/231252133706403/', target:'_blank'},
+					                  {name: 'Google+', url:'https://plus.google.com/communities/105507378655558718131', target:'_blank'}];
+					
+					
+					
+				}]);
+
 
 				module.controller('ContentCtrl', ['$scope', function($scope) {
 

@@ -54,27 +54,31 @@
 								 <header class="header"> <hgroup>
 								 <h1 class="brand-title">T.S.O.P</h1>
 								 <h2 class="brand-tagline">The Story of 60's Programmer</h2>
-								 </hgroup> <nav class="nav">
+								 </hgroup>
+
+								 <nav class="nav" ng-controller="TsopSnsLinkCtrl" >
 								 <ul class="nav-list">
-										 <li class="nav-item"><a class="pure-button" href="#">Google+</a></li>
-										 <li class="nav-item"><a class="pure-button" href="#">FaceBook</a></li>
+										 <li class="nav-item" ng-repeat="item in snslist">
+										 <a class="pure-button" target="{{item.target}}" href="{{item.url}}">{{item.name}}</a>
+										 </li>
 								 </ul>
-								 </nav> </header>
+								 </nav> 
+								 </header>
 						 </div>
 
 						 <div class="pure-u-1">
 								 <div id="header" class="pure-u-1">
-										 
+
 										 <div style="float: right; margin: 10px;">
-										<!--	<button class="g-signin"
-										 data-scope="https://www.googleapis.com/auth/plus.login"
-										 data-requestvisibleactions="http://schemas.google.com/AddActivity"
-										 data-clientId="@CLINET_ID"
-										 data-accesstype="offline"
-										 data-callback="onSignInCallback"
-										 data-theme="dark"
-										 data-cookiepolicy="single_host_origin">
-								 </button>--> <a href="#loginModal" role="button" class="pure-button pure-button-secondary login" data-toggle="modal" >Login</a>
+												 <!--	<button class="g-signin"
+														 data-scope="https://www.googleapis.com/auth/plus.login"
+														 data-requestvisibleactions="http://schemas.google.com/AddActivity"
+														 data-clientId="@CLINET_ID"
+														 data-accesstype="offline"
+														 data-callback="onSignInCallback"
+														 data-theme="dark"
+														 data-cookiepolicy="single_host_origin">
+												 </button>--> <a href="#loginModal" role="button" class="pure-button pure-button-secondary login" data-toggle="modal" >Login</a>
 												 <!--logout 버튼은 ng-show= !logined 
 												 login 버튼은 ng-show = logined 추가 시 버튼 사라짐-->
 												 <button ng-click="logout()" class="pure-button pure-button-warning logout">logout</button>
@@ -145,12 +149,12 @@
 				 function onSignInCallback(authResult){
 						 console.log(authResult);
 						 // close login modal button;
-						 
+
 						 var scope = angular.element(document.getElementsByClassName('login')[0]).scope();
 						 scope.login(authResult);
 
-						// document.getElementsByClassName('login_modal_submit')[0].click();
-						document.getElementsByClassName('login_modal_close')[0].click()
+						 // document.getElementsByClassName('login_modal_submit')[0].click();
+						 document.getElementsByClassName('login_modal_close')[0].click()
 				 }
-		 </script>
+</script>
  </html>
