@@ -16,37 +16,37 @@
 						 var s = document.getElementsByTagName('script')[0];
 						 s.parentNode.insertBefore(po, s);
 						 })();
-</script>
-<style>
-
-		div.header {
-				min-height: 80px;
-				margin: 0;
-				color: #333;
-				padding: 1em 2em;
-				text-align: center;
-				border-bottom: 1px solid #eee;
-				background: #fff;
-		}
-
-		div#home,div#menu,div#contacts,div#about {
-				height: calc(100% - 205px);
-		}
-
-		div#main {
-				height: 100%;
-		}
-
-		.pure-g>div {
-				-webkit-box-sizing: border-box;
-				-moz-box-sizing: border-box;
-				box-sizing: border-box;
-		}
-
-		.l-box {
-				padding: 1em;
-		}
-</style>
+				</script>
+				<style>
+				
+						div.header {
+								min-height: 80px;
+								margin: 0;
+								color: #333;
+								padding: 1em 2em;
+								text-align: center;
+								border-bottom: 1px solid #eee;
+								background: #fff;
+						}
+				
+						div#home,div#menu,div#contacts,div#about {
+								height: calc(100% - 205px);
+						}
+				
+						div#main {
+								height: 100%;
+						}
+				
+						.pure-g>div {
+								-webkit-box-sizing: border-box;
+								-moz-box-sizing: border-box;
+								box-sizing: border-box;
+						}
+				
+						.l-box {
+								padding: 1em;
+						}
+				</style>
 		 </head>
 		 <body ng-controller="TsopCtrl">
 				 <div class="pure-g-r" id="layout">
@@ -54,12 +54,16 @@
 								 <header class="header"> <hgroup>
 								 <h1 class="brand-title">T.S.O.P</h1>
 								 <h2 class="brand-tagline">The Story of 60's Programmer</h2>
-								 </hgroup> <nav class="nav">
-								 <ul class="nav-list">
-										 <li class="nav-item"><a class="pure-button" href="#">Google+</a></li>
-										 <li class="nav-item"><a class="pure-button" href="#">FaceBook</a></li>
-								 </ul>
-								 </nav> </header>
+								 </hgroup>
+								 
+									 <nav class="nav" ng-controller="TsopSnsLinkCtrl" >
+										 <ul class="nav-list">
+												 <li class="nav-item" ng-repeat="item in snslist">
+												 	<a class="pure-button" target="{{item.target}}" href="{{item.url}}">{{item.name}}</a>
+												 </li>
+										 </ul>
+									 </nav> 
+								 </header>
 						 </div>
 
 						 <div class="pure-u-1">
@@ -75,8 +79,8 @@
 										 data-theme="dark"
 										 data-cookiepolicy="single_host_origin">
 								 </button> <a href="#loginModal" role="button" class="pure-button pure-button-secondary login" data-toggle="modal" >Login</a>
-												 <!--logout ë²„íŠ¼ì€ ng-show= !logined 
-												 login ë²„íŠ¼ì€ ng-show = logined ì¶”ê°€ ì‹œ ë²„íŠ¼ ì‚¬ë¼ì§-->
+												 <!--logout ¹öÆ°Àº ng-show= !logined 
+												 login ¹öÆ°Àº ng-show = logined Ãß°¡ ½Ã ¹öÆ° »ç¶óÁü-->
 												 <button ng-click="logout()" class="pure-button pure-button-warning logout">logout</button>
 										 </div>
 										 <div class="header">
