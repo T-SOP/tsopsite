@@ -24,7 +24,10 @@ define(function() {
 						}
 
 				}]);
-
+				
+				module.controller('RegistCtrl',['$scope',function($scope){
+					console.log('regist');
+				}]);
 
 				module.controller('ContentCtrl', ['$scope', function($scope) {
 

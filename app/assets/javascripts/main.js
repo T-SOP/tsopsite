@@ -40,6 +40,13 @@ require([ "angularjs", "services", "controllers"],
 			templateUrl : TsopModule.rootfilepath + '/content.html',
 			controller : 'ContentCtrl'
 
+		}).when('/regist', {
+			templateUrl : TsopModule.rootfilepath + '/regist.html',
+			controller : 'RegistCtrl'
+
+		}).when('/regist/:contentId',{
+			templateUrl : TsopModule.rootfilepath + '/regist.html',
+			controller : 'RegistCtrl'
 		}).when('/member', {
 			templateUrl : TsopModule.rootfilepath + '/member.html',
 			controller : 'MemberCtrl'
