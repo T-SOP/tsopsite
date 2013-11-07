@@ -12,13 +12,11 @@ object Application extends Controller with securesocial.core.SecureSocial {
   val CLIENT_SECRET = "tB1w4J_r3bJa_bo6vgFiXcS6"
 
   def index = Action { request =>
-   
-request.session.get("username").map { username =>
-  	Ok(views.html.index(CLIENT_ID, "" + username ))
-  }.getOrElse {
-	Ok(views.html.index(CLIENT_ID, "" ))
-  }
-	  
+	  request.session.get("username").map { username =>
+	  	Ok(views.html.index(CLIENT_ID, "" + username ))
+	  }.getOrElse {
+		Ok(views.html.index(CLIENT_ID, "" ))
+	  }
   }
 
 
@@ -52,7 +50,7 @@ request.session.get("username").map { username =>
     //request => Ok( "haha " + request );
     
   }
-  * */ 
+  */ 
 }
 // An Authorization implementation that only authorizes uses that logged in using twitter
 case class WithProvider(provider: String) extends Authorization {
