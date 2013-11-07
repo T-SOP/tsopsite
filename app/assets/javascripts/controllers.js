@@ -11,7 +11,6 @@ define(function() {
 
 
 						//this is credentail var
-						/*  일단 로그인 로직 삭제
 						$scope.logined = true;
 						console.log('tsop');
 						$scope.test = 'tsop';
@@ -23,7 +22,6 @@ define(function() {
 								console.log(HomeSevc());
 								console.log('logout click');
 						}
-						*/
 
 				}]);
 				
