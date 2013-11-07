@@ -1,4 +1,4 @@
-@(message: String)
+@(message: String, username: String)
 @stylesheets = {
 <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")"/>
 <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css" />   
@@ -12,6 +12,6 @@
 @scripts = {
 
 }
- @helper.requireJs(core = routes.Assets.at("javascripts/require.js").url, module = routes.Assets.at("javascripts/main").url) 
+@helper.requireJs(core = routes.Assets.at("javascripts/require.js").url, module = routes.Assets.at("javascripts/main").url) 
 
-@main("T.S.O.P",stylesheets,scripts)(message) 
+@main("T.S.O.P",stylesheets,scripts)(message, username) 

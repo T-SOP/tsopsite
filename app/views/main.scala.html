@@ -1,4 +1,4 @@
-@(title: String, stylesheets : Html = Html(""), scripts: Html = Html(""))(CLINET_ID: String)
+@(title: String, stylesheets : Html = Html(""), scripts: Html = Html(""))(CLINET_ID: String, username: String)
 
 <!DOCTYPE html>
 
@@ -9,6 +9,8 @@
 				@scripts
 				<script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
 				<script type="text/javascript">
+						// ÀÏ´Ü google plus ·Î±×ÀÎ ·ÎÁ÷ »èÁ¦ ÇÕ´Ï´Ù
+						/*
 						(function() {
 						 var po = document.createElement('script');
 						 po.type = 'text/javascript'; po.async = true;
@@ -16,7 +18,8 @@
 						 var s = document.getElementsByTagName('script')[0];
 						 s.parentNode.insertBefore(po, s);
 						 })();
-</script>
+						 */
+				</script>
 <style>
 
 		div.header {
@@ -78,10 +81,22 @@
 														 data-callback="onSignInCallback"
 														 data-theme="dark"
 														 data-cookiepolicy="single_host_origin">
-												 </button>--> <a href="#loginModal" role="button" class="pure-button pure-button-secondary login" data-toggle="modal" >Login</a>
-												 <!--logout ë²„íŠ¼ì€ ng-show= !logined 
-												 login ë²„íŠ¼ì€ ng-show = logined ì¶”ê°€ ì‹œ ë²„íŠ¼ ì‚¬ë¼ì§-->
-												 <button ng-click="logout()" class="pure-button pure-button-warning logout">logout</button>
+												 </button>--> 
+												 @if(username.equals("") ){
+												 <a href="#/login" role="button" class="pure-button pure-button-secondary login" data-toggle="modal" >
+												 	Login
+												 </a>
+												 } else {
+												 welcome <name>@username</name>  
+												 <!--logout ¹öÆ°Àº ng-show= !logined 
+												 login ¹öÆ°Àº ng-show = logined Ãß°¡ ½Ã ¹öÆ° »ç¶óÁü-->
+												 <!--<button ng-click="logout()" class="pure-button pure-button-warning logout">logout</button> -->
+												 
+												 <a href="/logout" role="button" class="pure-button pure-button-secondary login" data-toggle="modal" >
+												 	Logout
+												 </a>
+												 
+												 }
 										 </div>
 										 <div class="header">
 												 <a href="#" class="pure-menu-heading"><img class="logo_img"
@@ -146,6 +161,7 @@
 				 <!-- this is end login Modal -->
 		 </body>
 		 <script type="text/javascript">
+		 		/*
 				 function onSignInCallback(authResult){
 						 console.log(authResult);
 						 // close login modal button;
@@ -156,5 +172,6 @@
 						 // document.getElementsByClassName('login_modal_submit')[0].click();
 						 document.getElementsByClassName('login_modal_close')[0].click()
 				 }
-</script>
+				 */
+		</script>
  </html>

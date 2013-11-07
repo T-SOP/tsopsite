@@ -11,7 +11,7 @@ define(function() {
 
 
 						//this is credentail var
-
+						/*  일단 로그인 로직 삭제
 						$scope.logined = true;
 						console.log('tsop');
 						$scope.test = 'tsop';
@@ -23,12 +23,15 @@ define(function() {
 								console.log(HomeSevc());
 								console.log('logout click');
 						}
+						*/
 
 				}]);
 				
 				module.controller('RegistCtrl',['$scope',function($scope){
 					console.log('regist');
 				}]);
+				
+				
 				// T-sop Link Ctlr
 				module.controller('TsopSnsLinkCtrl', ['$scope', function($scope) {
 					
@@ -38,7 +41,13 @@ define(function() {
 					
 					
 				}]);
-
+				
+				// T-sop Login Ctrl
+				module.controller('TsopLoginCtrl', ['$scope', function($scope) {
+					
+					$scope.loginList = [{name:'GitHub Login', url:'/authenticate/github', target:''}];
+					
+				}]);
 
 				module.controller('ContentCtrl', ['$scope', function($scope) {
 

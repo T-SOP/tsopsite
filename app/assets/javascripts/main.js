@@ -55,6 +55,10 @@ require([ "angularjs", "services", "controllers"],
 			templateUrl : TsopModule.rootfilepath + '/about.html',
 			controller : 'AboutCtrl'
 
+		}).when('/login', {
+			templateUrl : TsopModule.rootfilepath + '/login.html',
+			controller : 'TsopLoginCtrl'
+
 		}).otherwise({
 			redirectTo : '/home'
 		})
