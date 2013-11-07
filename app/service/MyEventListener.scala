@@ -26,10 +26,17 @@ class MyEventListener(app: Application) extends EventListener {
     // Not changing the session so just return None
     // if you wanted to change the session then you'd do something like
     if( eventName.equals("login") ){
-    	Some( ( session + ("username" -> event.user.fullName ) ) + ("email" -> event.user.email.map { email => email }.getOrElse("Not Available") ) )
+    	val ret = Some( ( session + ("username" -> event.user.fullName ) ) + ("email" -> event.user.email.map { email => email }.getOrElse("Not Available") ) )
+    
+	println( ret )
+
+	ret
     }
     else if( eventName.equals("logout") ){
-    	Some( ( session - "username" ) - "email" )
+    	val ret = Some( ( session - "username" ) - "email" )
+	println( ret )
+
+	None
     }
     else {
     	Some( session )

@@ -12,14 +12,23 @@ object Application extends Controller with securesocial.core.SecureSocial {
   val CLIENT_SECRET = "tB1w4J_r3bJa_bo6vgFiXcS6"
 
   def index = Action { request =>
-    
-  	  request.session.get("connected").map { username: String =>
-    	Ok(views.html.index(CLIENT_ID, username))
-	  }.getOrElse {
-		Ok(views.html.index(CLIENT_ID, ""))
-	  }
+   
+request.session.get("username").map { username =>
+  	Ok(views.html.index(CLIENT_ID, "" + username ))
+  }.getOrElse {
+	Ok(views.html.index(CLIENT_ID, "" ))
+  }
 	  
-	  
+  }
+
+
+  // Session Clear Page
+  def sessionclear = Action { request =>
+
+//	Ok("bye").withNewSession
+
+	Redirect(routes.Application.default()).withNewSession
+
   }
   
   /*
