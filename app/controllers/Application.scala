@@ -27,7 +27,7 @@ request.session.get("username").map { username =>
 
 //	Ok("bye").withNewSession
 
-	Redirect(routes.Application.default()).withNewSession
+	Redirect("/").withNewSession
 
   }
   
