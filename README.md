@@ -4,10 +4,28 @@ TSOP 스터디 사이트
 0. todo
 --------
 
-* OAuth 로그인 로직 넣기 ( GooglePlus 로그인은 삭제 하였음 추후 추가 )
-*    V GitHub
-* 로그인 디자인 다듬기 - 병선
-* 레이아웃 다듬기 - 병선
+* 로그인 로직
+     : 어떻게 User 정보를 받아오고, 다른 controller 이 알아 채는 표준 프로세스
+     : 담당 - 봉성주
+
+* Layout 정리 하기
+     : 반응형 + 물리엔진 적용
+     : controller 정의
+          -> TsopMainCtrl - 전체 Layout 총괄
+          -> TsopSideCtrl - SideBar 기능 총괄
+          -> TsopLoginCtrl - 로그인 정보 표현
+          -> 서브 컨텐츠 View 마다 다르게 컨트롤러를 등록 한다.
+     : 담당 - 최민기
+
+* Content 만들기
+     : DB를 사용 함
+     : 담당 - 봉성주
+
+* Member 사진 만들기
+     : 파일 기반 -> 링크 기반
+     : 담당 - 서병선
+
+** 설계 자료 20131108_design.png  참고
 
 1. 사용 기술
 --------
