@@ -5,6 +5,8 @@
 # Home page
 GET     /                           controllers.Application.index
 
+GET		/onepage					controllers.Application.onepage_index
+
 # Task test page
 #GET     /tasks					    controllers.Application.tasks
 
