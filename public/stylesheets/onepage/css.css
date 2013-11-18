@@ -23,18 +23,32 @@ section {
     color: #fff;
     background-color: #353535;
 }
-h3 {
-    margin: 0 auto 90px;
-    font-size: 3.375em;
+.dark hr {
+    border-top:1px solid #555;
+    margin: 60px 0;
+}
+h2 {
+    margin: 0 auto 60px;
+    font-size: 46px;
     text-align: center;
     letter-spacing: 3px;
 }
-h3 span {
+h2 span {
     display: inline-block;
     padding: 15px 0;
     border: 1px solid;
     border-width: 1px 0;
 }
+h3 {
+    font-size: 30px;
+}
+h4 {
+    font-size: 24px;
+}
+#projects .title  {  }
+#projects .desc   { font-size: 20px; }
+#members .box     { text-align: center; }
+#members .desc    { text-align: left; }
 @media (min-width: 768px) {
     .container {
         max-width: 960px;
