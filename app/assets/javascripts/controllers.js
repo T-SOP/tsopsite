@@ -49,13 +49,6 @@ define(function() {
 					
 				}]);
 
-				module.controller('ContentCtrl', ['$scope', function($scope) {
-
-						console.log('content');
-						$scope.test = 'content';
-
-				}]);
-
 				module.controller('MemberCtrl', ['$scope', function($scope) {
 						console.log('member');
 						$scope.test = 'member';

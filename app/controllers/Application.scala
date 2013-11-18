@@ -18,6 +18,10 @@ object Application extends Controller with securesocial.core.SecureSocial {
 		Ok(views.html.index(CLIENT_ID, "" ))
 	  }
   }
+  
+  def onepage_index = Action{ 
+    Ok( views.html.onepage_index("test","test") );
+  }
 
 
   // Session Clear Page

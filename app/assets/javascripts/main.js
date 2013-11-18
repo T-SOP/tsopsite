@@ -1,9 +1,8 @@
 require.config({
     paths: {
-    	
-        'angularjs': '/assets/javascripts/lib/angular.min',
-        'jquery': '/assets/javascripts/lib/jquery-1.9.0.min'
-        	
+    	'angularjs': '/assets/javascripts/lib/angular1.2.0/angular.min',
+    	'angularjs-route' : '/assets/javascripts/lib/angular1.2.0/angular-route.min',
+        'jquery': '/assets/javascripts/lib/jquery-1.9.0.min'        
     },
     /**
      * for libs that either do not support AMD out of the box, or
@@ -14,6 +13,9 @@ require.config({
             exports: 'angular',
             deps: ['jquery']
         },
+        'angularjs-route' :{
+        	deps: ['angularjs']
+        },
         'jquery': {
             exports: 'jquery'
         }
@@ -21,16 +23,18 @@ require.config({
     
 });
 
-require([ "angularjs", "services", "controllers"],
-		function( angular, service, controllers ) {
+require([ "angularjs", 'angularjs-route', "services", "controllers", "content/controllers"],
+		function( angular, angularjs_route, 
+				  service, controllers, content_controller ) {
 
-	var TsopModule = angular.module('Tsop', []);
+	var TsopModule = angular.module('Tsop', ['ngRoute']);
 
 	TsopModule.rootfilepath = 'assets/views';
 	
 	// add Service, Controller to module
 	service( TsopModule );
 	controllers( TsopModule );
+	content_controller( TsopModule );	// <-- 이렇게 추가 하는 부분을 없애야 할 것 같은 데...
 
 	TsopModule.config([ '$routeProvider', function($routerProvider) {
 		$routerProvider.when('/home', {
