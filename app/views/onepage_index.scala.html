@@ -1,0 +1,13 @@
+@(message: String, username: String)
+@stylesheets = {
+<link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")"/>
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" />       
+<link rel="stylesheet" href="@routes.Assets.at("stylesheets/onepage/css.css")" />   
+}
+
+@scripts = {
+<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+} 
+
+@onepage_main("T.S.O.P",stylesheets,scripts)(message, username) 
