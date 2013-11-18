@@ -1,11 +1,22 @@
 
-<center>
-	 <h2 class="brand-tagline">Login</h2>
-	
-	 <ul ng-controller="TsopLoginCtrl">
-			 <li class="nav-item" ng-repeat="item in loginList">
-			 <a role="button" class="pure-button pure-button-secondary login" target="{{item.target}}" href="{{item.url}}">{{item.name}}</a>
-			 </li>
-	 </ul>
+ <center ng-controller='TsopLoginCtrl' >
+ <form class="pure-form">
+ 	<fieldset>
+ 		<legend>Git hub login </legend>
+ 		<a ng-repeat="item in loginList" role="button" class="pure-button pure-button-secondary login" target="{{item.target}}" href="{{item.url}}">{{item.name}}</a>
+ 	</fieldset>
+    <fieldset>
+        <legend>A compact inline form</legend>
+
+        <input type="email" placeholder="Email">
+        <input type="password" placeholder="Password">
+
+        <label for="remember">
+            <input id="remember" type="checkbox"> Remember me
+        </label>
+
+        <button type="submit" class="pure-button pure-button-primary">Sign in</button>
+        
+    </fieldset>
+</form>
 </center>
- 

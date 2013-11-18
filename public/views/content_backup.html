@@ -1,81 +1,17 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- The HTML 4.01 Transitional DOCTYPE declaration-->
+<!-- above set at the top of the file will set     -->
+<!-- the browser's rendering engine into           -->
+<!-- "Quirks Mode". Replacing this declaration     -->
+<!-- with a "Standards Mode" doctype is supported, -->
+<!-- but may lead to some differences in layout.   -->
+
 <div style="height: 30px;">
-		<a href="" ng-click="addNewContents()" class="pure-button pure-button-secondary" style="float: right;">New Contents</a>
+		<a href="#/regist" class="pure-button pure-button-secondary" style="float: right;">Regist</a>
 </div>
 <div class="contents">
-<div class="posts" ng-show="modeNewPost" >
-	<form class="pure-form pure-form-stacked">
-	    <fieldset>
-	        <legend>New Content</legend>
-	
-	        <label for="title">Title</label>
-	        <input id="title" type="text" placeholder="Title" class="pure-input-1" ng-model="newContentinfo.title">
-	
-	        <label for="auther">Auther</label>
-	        <input id="auther" type="text" placeholder="Your name" class="pure-input-1" ng-model="newContentinfo.auther">
-	        
-	        <label for="auther_email">Auther Email</label>
-	        <input id="auther_email" type="email" placeholder="Your Email" class="pure-input-1" ng-model="newContentinfo.email">
-	        
-	        <label for="auther_logo">Auther logo</label>
-	        <input id="auther_logo" type="text" placeholder="Your Logo URL" class="pure-input-1" ng-model="newContentinfo.logo">
-	        
-	        <label for="auther_logo">Auther logo</label>
-	        <div class="pure-control-group">
-	        	<button type="button" class="pure-button" ng-click='addContent("text")' >Text</button>
-	        	<button type="button" class="pure-button" ng-click='addContent("imageurl")' >ImageUrl</button>
-	        </div>
-	        
-	        <div class="pure-control-group" ng-repeat="item in contentLists" >
-	        	<div ng-if="'text' == item.type">
-				    Text Style <br/>
-				    <textarea ng-model='item.data'></textarea>
-				</div>
-				<div ng-if="'imageurl' == item.type">
-				    Text Style <br/>
-				    <input type="text" ng-model="item.data" class="pure-input-1"></textarea>
-				</div>
-	        </div>
-	
-	        <button type="submit" ng-click="onSave()" class="pure-button pure-button-primary">Save</button>
-	        <button type="submit" class="pure-button pure-button-primary">Cancel</button>
-	    </fieldset>
-	</form>
-</div>
-
 <div class="posts">
 	<h1 class="content-subhead">Pinned Post</h1>
-
-
-	<section class="post" ng-repeat='item in pinContents'> <header class="post-header">
-	<img class="post-avatar" alt="{{item.auther}} avatar"
-		src="{{item.logo}}" height="48" width="48">
-
-	<h2 class="post-title">{{item.title}}</h2>
-
-	<p class="post-meta">
-		By <a href="#" class="post-author">{{item.auther}}</a>
-	</p>
-	</header>
-
-	<div class="post-description" ng-repeat='content_item in item.contentlist'>
-	
-		<p ng-if="'text' == content_item.type">
-			{{content_item.data}}
-		</p>
-		<div ng-if="'imageurl' == content_item.type" class="post-images pure-g-r">
-			<div class="pure-u-1-2">
-				<a href="http://www.flickr.com/photos/uberlife/8915936174/"> <img
-					alt="Photo of someone working poolside at a resort"
-					src="{{content_item.data}}">
-				</a>
-				<div class="post-image-meta">
-					<h3>Image!!!</h3>
-				</div>
-			</div>
-		</div>
-
-	</div>
-	</section>
 
 	<!-- A single blog post -->
 	<section class="post"> <header class="post-header">
