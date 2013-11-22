@@ -11,19 +11,29 @@ define(function() {
 
 
 						//this is credentail var
-						$scope.logined = true;
+						$scope.user = {name : "", img : "", aboutMe : ""};
 						console.log('tsop');
 						$scope.test = 'tsop';
 						$scope.login = function(authResult){
 								console.log(authResult);
 								console.log('login click');
-						}
-						$scope.logout = function(){
-								console.log(HomeSevc());
-								console.log('logout click');
-						}
+						 gapi.client.load('plus','v1',this.renderProfile);
+	console.log($scope.user);					}
+						$scope.logout = function(){						    console.log(HomeSevc());
+						    console.log('logout click');
+					}
 
-				}]);
+				                $scope.renderProfile = function(){
+					    var request = gapi.client.plus.people.get({'userId' : 'me'});
+						    var username,image,about;			    request.execute( function(profile){
+							console.log(profile);
+							if(profile.error){
+							    return;
+							}
+	   console.log(profile);
+    });
+						}
+}]);
 				
 				module.controller('RegistCtrl',['$scope',function($scope){
 					console.log('regist');
