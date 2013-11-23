@@ -3,6 +3,8 @@ package controllers
 import play.api._
 import play.api.mvc._
 
+import models.User
+
 import models.Task
 import securesocial.core.{Identity, Authorization}
 
@@ -13,14 +15,19 @@ object Application extends Controller with securesocial.core.SecureSocial {
 
   def index = Action { request =>
    
-request.session.get("username").map { username =>
-  	Ok(views.html.index(CLIENT_ID, "" + username ))
+   request.session.get("username").map { username =>
+   	Ok(views.html.index(CLIENT_ID, "" + username ))
   }.getOrElse {
 	Ok(views.html.index(CLIENT_ID, "" ))
   }
 	  
   }
+  
+  def login = TODO;
 
+  def connect = TODO;
+  
+  def disconnect = TODO;
 
   // Session Clear Page
   def sessionclear = Action { request =>

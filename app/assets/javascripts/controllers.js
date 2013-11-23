@@ -1,5 +1,5 @@
 /**
- * Controllerss
+OB * Controllerss
  */
 
 define(function() {
@@ -12,28 +12,54 @@ define(function() {
 
 						//this is credentail var
 						$scope.user = {name : "", img : "", aboutMe : ""};
-						console.log('tsop');
+						//console.log('tsop');
 						$scope.test = 'tsop';
-						$scope.login = function(authResult){
-								console.log(authResult);
-								console.log('login click');
-						 gapi.client.load('plus','v1',this.renderProfile);
-	console.log($scope.user);					}
-						$scope.logout = function(){						    console.log(HomeSevc());
-						    console.log('logout click');
+				    $scope.login = function(authResult){
+					//		console.log(authResult);
+					//		console.log('login click');
+					
+					HomeSevc().connect(authResult.code);
+				    
+				    gapi.client.load('plus','v1',this.renderProfile);
+				    //console.log($scope.user);
+				}
+				    $scope.logout = function(){			
+					console.log(HomeSevc().logout());
+						  //  console.log('logout click');
 					}
 
-				                $scope.renderProfile = function(){
-					    var request = gapi.client.plus.people.get({'userId' : 'me'});
-						    var username,image,about;			    request.execute( function(profile){
-							console.log(profile);
-							if(profile.error){
-							    return;
-							}
-	   console.log(profile);
-    });
-						}
-}]);
+				    $scope.renderProfile = function(code){
+					var request = gapi.client.plus.people.get({'userId' : 'me'});
+					request.execute( function(profile){
+					    $scope.setUser(profile);
+					    var user = {};
+					    user['name'] = profile.displayName;
+					    user['image'] = profile.image.url;
+					    user['aboutMe'] = profile.aboutMe;
+					   // user['code'] = $scope.code;
+					    console.log(HomeSevc().login(user));
+					});
+						//     request.execute( function(profile){
+						// //	console.log(profile);
+						// 	if(profile.error){
+						// 	    return;
+						// 	}
+						// 	$scope.user['name'] = profile.displayName;
+						// 	$scope.user['img'] = profile.image.url;
+						// 	$scope.user['aboutMe'] = profile.aboutMe;
+						// 	console.log($scope.user);
+						// 	// console.log(profile);
+						//     });
+				    }
+				    $scope.setUser = function(profile){
+					console.log(profile);
+	
+					// scope.user['name'] = profile.displayName;
+					// scope.user['img'] = profile.image.url;
+					// scope.user['aboutMe'] = profile.aboutMe;
+				    }
+
+				}]);
 				
 				module.controller('RegistCtrl',['$scope',function($scope){
 					console.log('regist');
@@ -48,6 +74,7 @@ define(function() {
 					
 					
 					
+
 				}]);
 				
 				// T-sop Login Ctrl

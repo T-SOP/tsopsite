@@ -14,6 +14,10 @@ GET     /assets/*file               controllers.Assets.at(path="/public", file)
 
 ####################################################################################################
 # Login page
+POST     /login                      controllers.Application.login
+POST    /connect                   controllers.Application.connect
+GET     /disconnect                 controllers.Application.disconnect
+
 GET     /login                      securesocial.controllers.LoginPage.login
 GET     /logout                     securesocial.controllers.LoginPage.logout
 GET	/logout_sessionclear	    controllers.Application.sessionclear
