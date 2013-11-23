@@ -6,8 +6,8 @@
 }
 
 @scripts = {
-<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
 } 
+
+@helper.requireJs(core = routes.Assets.at("javascripts/require.js").url, module = routes.Assets.at("javascripts/onepage/main").url)
 
 @onepage_main("T.S.O.P",stylesheets,scripts)(message, username) 

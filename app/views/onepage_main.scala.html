@@ -53,7 +53,7 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
         <![endif]-->
     </head>
-    <body>
+    <body ng-app='Tsop_onepage' ng-controller='TsopOnepageCtrl'>
         <div class="navbar navbar-default navbar-fixed-top" role="navigation">
             <div class="container">
                 <div class="navbar-header">
@@ -89,57 +89,72 @@
         <section id="home" class="dark">
             <div class="container">
                 <h2><span>The Story of 60-year-old Programmer</span></h2>
+                
+                <center>
+                <img class="img-circle" alt="140x140" style="width: 280px; height: 280px;" src="/assets/images/rafaki_pencile.jpg" />
+                </center>
             </div>
         </section>
         <section id="about">
             <div class="container">
                 <h2><span>ABOUT</span></h2>
+                <div class="row">
+	                <div class="col-lg-4 box">
+	                    <h3>Search for Anything</h3>
+	                    <br/>
+	                    <p class="desc">
+	                    	T-SOP 스터디 그룹은 검색을 위한 모든 분야에 대해 연구하는 그룹 입니다.
+	                    </p>
+	                    <p class="desc">
+	                    	Text 문서 검색, PDF와 같은 형식이 있는 문서 검색, 이미지 검색, 연관 검색어등, 모든 프로그램에 필수 이며, 핵심인 검색 분야를 연구 합니다.
+	                    </p>
+	                    <p class="desc">
+	                    	2013년 11월 부터 계획하여 2014년은 왕성한 활동을 하려고 합니다.
+	                    </p>
+	                    <p class="desc">
+	                    	함께 하시고 싶으신 분은 아래 Contact 에 있는 Email 주소로 연락 주시거나, 핵심 member 들의 매일로 연락 주십시오.
+	                    </p>
+	                </div>
+	          </div>
             </div>
         </section>
-        <section id="projects" class="dark">
+        <section id="projects" class="dark" ng-controller="onepage_project_ctrl">
             <div class="container">
                 <h2><span>PROJECTS</span></h2>
+                
+                <loopblock ng-repeat="item in contents" >
                 <div class="row">
-                    <div class="col-md-7">
-                        <h3 class="title">프로젝트#1</h3>
-                        <h4 class="text-muted">scala-for-the-impatient</h4>
-                        <p class="desc">이놈, 이의 이 대답이 싸게 애쓰는 변하였다. 일 처먹고 미끄러져가는 깜짝 하였다. 눈에 오는 없으리라고 들어와 불길은 모셔다 기어이 보채는 듯. 사람을 발로 치삼이와 뛰어나오려니까 아무말이 떨어진 맞고 보증하랴. 탁자에 덮이고, 걸 말이야 말을 불안을 붙은 일변 없다. 육십 기쁨이 사면을 벌었어.</p>
-                    </div>
-                    <div class="col-md-5">
+                
+                	<hr ng-if="0 != $index">
+                	
+                	<div class="col-md-5" ng-if="0 != $index%2">
                         <img class="img-responsive" alt="500x500" src="http://ofbuckleyandbeatles.files.wordpress.com/2011/01/testpattern.gif">
                     </div>
-                </div>
-                <hr>
-                <div class="row">
-                    <div class="col-md-5">
-                        <img class="img-responsive" alt="500x500" src="http://ofbuckleyandbeatles.files.wordpress.com/2011/01/testpattern.gif">
-                    </div>
+                    
                     <div class="col-md-7">
-                        <h3 class="title">프로젝트#2</h3>
-                        <h4 class="text-muted">awesome</h4>
-                        <p class="desc">같은 남기고 들어오는데 목도 압다. 관망하기로 말이 우는 광명이 데는 아니라 밖이었다. 없으리라고 김첨지의 울 발길에 길을 그려. 내가 소리가 달에 먹고 같은 시작하였다. 뼈만 입술을 박두한 채 곁으로 터이다. 맞아가며 한꺼번에 내가 죽었나보이.</p>
+                        <h3 class="title">{{item.title}}</h3>
+                        <h4 class="text-muted">{{item.subtitle}}</h4>
+                        <p class="desc">{{item.descript}}</p>
+                    </div>
+                    
+                    <div class="col-md-5" ng-if="0 == $index%2">
+                        <img class="img-responsive" alt="500x500" src="{{item.descimgurl}}">
                     </div>
                 </div>
+                
+                </loopblock>
           </div>
       </section>
-      <section id="members">
+      
+      <section id="members" ng-controller='onepage_member_ctrl'>
         <div class="container">
             <h2><span>MEMBERS</span></h2>
+            
             <div class="row">
-                <div class="col-lg-4 box">
-                    <img class="img-circle" alt="140x140" style="width: 140px; height: 140px;" src="http://ofbuckleyandbeatles.files.wordpress.com/2011/01/testpattern.gif">
-                    <h3>farmersbs</h3>
-                    <p class="desc">짐이 짜리 바라보느냐, 전, 놓칠 늦추잡았다. 오고 눈물이 년, 넘는답니다.또 조밥을 하였다. 태울 앓는단 그릇을 그 원을 하고 듯하였다. 사십 빈 김첨지가 자기를 눌렀다. 다리는 얼마를 김첨지를 같다.</p>
-                </div>
-                <div class="col-lg-4 box">
-                    <img class="img-circle" alt="140x140" style="width: 140px; height: 140px;" src="http://ofbuckleyandbeatles.files.wordpress.com/2011/01/testpattern.gif">
-                    <h3>bongster</h3>
-                    <p class="desc">이놈아, 거짓말은 손 모양일세 옹송그려지며 꿀떡꿀떡하고 껴들어 없이 듯. 얻어서 운수가 숨을 그 몹시 가서 가. 지저귀에서 남은 덕분에 동광학교까지 저렇게 났음이다.</p>
-                </div>
-                <div class="col-lg-4 box">
-                    <img class="img-circle" alt="140x140" style="width: 140px; height: 140px;" src="http://ofbuckleyandbeatles.files.wordpress.com/2011/01/testpattern.gif">
-                    <h3>agileup</h3>
-                    <p class="desc">이 흘릴 성을 못 아따 그때도 말이요. 재미 것 안 간이며, 뺨을 오는 있다. 학생은 동소문 어떻게 바라보느냐, 놓을 하며 온 모로도 화끈하였다.</p>
+                <div class="col-lg-4 box" ng-repeat='item in contents'>
+                    <img class="img-circle" alt="140x140" style="width: 140px; height: 140px;" src="{{item.iconurl}}">
+                    <h3>{{item.name}}</h3>
+                    <p class="desc"><center>{{item.descript}}</center></p>
                 </div>
           </div>
       </div>
@@ -147,32 +162,11 @@
   <section id="contact" class="dark">
     <div class="container">
         <h2><span>CONTACT</span></h2>
+        
+        <p class="desc"><center> 아직 준비 중입니다. </center></p>
+        
     </div>
 </section>
 <!-- vendor script -->
-
-<!-- custom script -->
-<script type="application/javascript">
-    $(document).ready(function() {
-        $('.navbar-nav a').click(function(e) {
-            var self = $(this);
-            self.parent().parent().find('.active').removeClass('active');
-            self.parent().addClass('active');
-            $('html, body').animate({
-                scrollTop : $(self.attr('href')).offset().top - 50
-            }, {
-                duration : 700,
-                specialEasing : {
-                    width : "linear",
-                    height : "easeOutBounce"
-                },
-                complete : function() {
-
-                }
-            });
-            return false;
-        });
-    });
-</script>
 </body>
 </html>
