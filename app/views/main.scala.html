@@ -1,4 +1,4 @@
-@(title: String, stylesheets : Html = Html(""), scripts: Html = Html(""))(CLINET_ID: String, username: String)
+@(title: String, stylesheets : Html = Html(""), scripts: Html = Html(""))(CLINET_ID: String,   check: Boolean , state: String)
 
 <!DOCTYPE html>
 
@@ -82,20 +82,20 @@
 														 data-cookiepolicy="single_host_origin">
 												 </button>--> 
 												 
-						<span>{{user}}</span>			
-						@if(username ==""){<a href="#loginModal" role="button" class="pure-button pure-button-secondary login" data-toggle="modal" >
+												 <input id = "state" type="hidden" ng-model="state" value="@state">
+						@if(!check){<a href="#loginModal" role="button" class="pure-button pure-button-secondary login" data-toggle="modal" >
 	Login </a>}else{
 												<!--logout ��ư�� ng-show= !logined 
 												 login ��ư�� ng-show = logined �߰� �� ��ư �����-->
 												 <button ng-click="logout()" class="pure-button pure-button-warning logout">logout</button> 
 			}								 
 
-					<!--							 @if(username.equals("") ){
+					<!--							 @if(state.equals("") ){
 												 <a href="#/login" role="button" class="pure-button pure-button-secondary login" data-toggle="modal" >
 												 	Login
 												 </a>
 												 } else {
-												 welcome <name>@username</name> -->  
+												 welcome <name>@state</name> -->  
 												 <!--logout ��ư�� ng-show= !logined 
 												 login ��ư�� ng-show = logined �߰� �� ��ư �����-->
 												 <!--<button ng-click="logout()" class="pure-button pure-button-warning logout">logout</button> -->
@@ -170,7 +170,7 @@
 		 </body>
 		 <script type="text/javascript">
 				 function onSignInCallback(authResult){
-						 console.log(authResult);
+	//					 console.log(authResult);
 						 // close login modal button;
 
 						 var scope = angular.element(document.getElementsByClassName('login')[0]).scope();

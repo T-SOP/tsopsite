@@ -15,12 +15,13 @@ GET     /assets/*file               controllers.Assets.at(path="/public", file)
 ####################################################################################################
 # Login page
 POST     /login                      controllers.Application.login
-POST    /connect                   controllers.Application.connect
+POST    /connect                   controllers.Application.connect(state : String)
+POST     /disconnect                 controllers.Application.disconnect
 GET     /disconnect                 controllers.Application.disconnect
 
 GET     /login                      securesocial.controllers.LoginPage.login
 GET     /logout                     securesocial.controllers.LoginPage.logout
-GET	/logout_sessionclear	    controllers.Application.sessionclear
+#GET	/logout_sessionclear	    controllers.Application.sessionclear
 
 # User Registration and password handling (only needed if you are using UsernamePasswordProvider)
 GET     /signup                     securesocial.controllers.Registration.startSignUp

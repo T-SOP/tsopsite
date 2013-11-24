@@ -11,9 +11,9 @@ define(function() {
 
 
 						//this is credentail var
-						$scope.user = {name : "", img : "", aboutMe : ""};
+					$scope.user = {name : "", img : "", aboutMe : ""};
 						//console.log('tsop');
-						$scope.test = 'tsop';
+
 				    $scope.login = function(authResult){
 					//		console.log(authResult);
 					//		console.log('login click');
@@ -24,8 +24,9 @@ define(function() {
 				    //console.log($scope.user);
 				}
 				    $scope.logout = function(){			
-					console.log(HomeSevc().logout());
+					//console.log(HomeSevc().logout());
 						  //  console.log('logout click');
+					HomeSevc().logout();
 					}
 
 				    $scope.renderProfile = function(code){
@@ -39,17 +40,7 @@ define(function() {
 					   // user['code'] = $scope.code;
 					    console.log(HomeSevc().login(user));
 					});
-						//     request.execute( function(profile){
-						// //	console.log(profile);
-						// 	if(profile.error){
-						// 	    return;
-						// 	}
-						// 	$scope.user['name'] = profile.displayName;
-						// 	$scope.user['img'] = profile.image.url;
-						// 	$scope.user['aboutMe'] = profile.aboutMe;
-						// 	console.log($scope.user);
-						// 	// console.log(profile);
-						//     });
+
 				    }
 				    $scope.setUser = function(profile){
 					console.log(profile);
