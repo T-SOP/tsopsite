@@ -15,16 +15,21 @@ define(function() {
 						    console.log(user);
 						    $http({method : 'POST', url: 'login',data : user})
 							.then(function(data,status,headers,config){ 
-							   		window.location = window.location.href;
+							   		window.location.reload();
 									console.log(status);
 							},function(data,status,headers,config){
-							   		window.location = window.location.href;
+							   		window.location.reload();
 									console.log(status);
 							});
 						},
 						logout : function(){
 						    console.log('logout click');
- $http({method : 'POST', url: 'disconnect'}).then(function(response){ console.log(response);},function(response){ console.log(response);});
+ $http({method : 'POST', url: 'disconnect'}).
+						then(function(data,status,headers,config){ 
+							   		window.location.reload();
+						},function(data,status,headers,config){
+							   		window.location.reload();
+						});
 						},
 					    connect : function(code){
 						console.log(code);
@@ -32,11 +37,8 @@ define(function() {
 						codeData['code'] = code;
 						$http({method : 'POST', 
 						       url: 'connect?state='+ document.getElementById('state').value ,
-						       async : false,data:codeData}).then(function(response){
-							   		window.location = window.location.href;
-							   },function(response){
-							   		console.log(response);
-							   		window.location = window.location.href;
+						       async : false,data:codeData}).then(function(data,status,headers,config){
+							   },function(data,status,headers,config){
 							   });
 					    }
 					}
