@@ -13,13 +13,10 @@ define(function() {
 						//console.log($http);
 						    console.log('login click');
 						    console.log(user);
-						    $http({method : 'POST', url: 'login',data : user})
+						    $http({method : 'POST', url: 'login',data : user,async : false})
 							.then(function(data,status,headers,config){ 
 							   		window.location.reload();
-									console.log(status);
 							},function(data,status,headers,config){
-							   		window.location.reload();
-									console.log(status);
 							});
 						},
 						logout : function(){
@@ -28,7 +25,6 @@ define(function() {
 						then(function(data,status,headers,config){ 
 							   		window.location.reload();
 						},function(data,status,headers,config){
-							   		window.location.reload();
 						});
 						},
 					    connect : function(code){
@@ -38,6 +34,7 @@ define(function() {
 						$http({method : 'POST', 
 						       url: 'connect?state='+ document.getElementById('state').value ,
 						       async : false,data:codeData}).then(function(data,status,headers,config){
+							   window.location.reload();
 							   },function(data,status,headers,config){
 							   });
 					    }
