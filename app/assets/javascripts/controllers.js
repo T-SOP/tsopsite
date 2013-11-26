@@ -7,25 +7,26 @@ define(function() {
 		return function( module ){
 
 				// Tsop Main Ctrl
-				module.controller('TsopCtrl', ['$scope','HomeSrvc', function($scope,HomeSevc) {
-
-
-						//this is credentail var
-						/*  일단 로그인 로직 삭제
-						$scope.logined = true;
-						console.log('tsop');
-						$scope.test = 'tsop';
-						$scope.login = function(authResult){
-								console.log(authResult);
-								console.log('login click');
-						}
-						$scope.logout = function(){
-								console.log(HomeSevc());
-								console.log('logout click');
-						}
-						*/
-
-				}]);
+		    module.controller('TsopCtrl', ['$scope','HomeSrvc', function($scope,HomeSevc) {
+			
+			//this is credentail var
+			$scope.logined = false;
+			console.log('tsop');
+			$scope.test = 'tsop';
+			
+			$scope.login = function(authResult){
+			    console.log(authResult);
+			    $scope.logined = true;
+			    console.log('login click');
+			    
+			}
+			$scope.logout = function(){
+			    $socpe.logined = false;
+			    console.log(HomeSevc());
+			    console.log('logout click');
+			}
+			
+		    }]);
 				
 				module.controller('RegistCtrl',['$scope',function($scope){
 					console.log('regist');
