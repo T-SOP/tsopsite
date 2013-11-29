@@ -52,7 +52,7 @@ object Application extends Controller with securesocial.core.SecureSocial {
       request.session + ("state" -> state)
     )
   }
-  
+  }
   def onepage_index = Action{ 
     Ok( views.html.onepage_index("test","test") );
   }
