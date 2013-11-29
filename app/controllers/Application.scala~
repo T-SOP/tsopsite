@@ -38,6 +38,14 @@ object Application extends Controller with securesocial.core.SecureSocial {
    * Default HTTP transport to use to make HTTP requests.
    */
 
+<<<<<<< HEAD
+  def index = Action { implicit request =>
+	  request.session.get("user").map { user =>
+	  	Ok(views.html.index(CLIENT_ID , new User(user,"")))
+	  }.getOrElse {
+		Ok(views.html.index(CLIENT_ID , new User("" , "")))
+	  }
+=======
   def index = Action { request =>
   request.session.get("token").map { token =>{
     val state: String = new BigInteger(130, new SecureRandom()).toString(32);
@@ -51,11 +59,38 @@ object Application extends Controller with securesocial.core.SecureSocial {
     Ok(views.html.index(CLIENT_ID , false , state )).withSession(
       request.session + ("state" -> state)
     )
+>>>>>>> bong
   }
   
   def onepage_index = Action{ 
     Ok( views.html.onepage_index("test","test") );
   }
+  
+<<<<<<< HEAD
+  /*
+  def tasks = Action {
+    println(Task.all());
+
+    Ok(views.html.index(CLIENT_ID))
+  }
+
+  def newTask = TODO
+
+  def deleteTask(id: Long) = Action {
+    Task.delete(id)
+    Redirect(routes.Application.tasks)
+  }
+  
+  // Login page
+  def loginPage = Action {
+    
+    Ok( views.html.login() );
+    //request => Ok( "haha " + request );
+    
+  }
+  */ 
+=======
+>>>>>>> bong
 }
 // An Authorization implementation that only authorizes uses that logged in using twitter
 case class WithProvider(provider: String) extends Authorization {
