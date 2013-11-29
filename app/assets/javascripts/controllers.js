@@ -20,7 +20,7 @@ define(function() {
 					
 					HomeSevc().connect(authResult.code);
 				    
-				    gapi.client.load('plus','v1',this.renderProfile);
+	//			    gapi.client.load('plus','v1',this.renderProfile);
 				    //console.log($scope.user);
 				}
 				    $scope.logout = function(){			

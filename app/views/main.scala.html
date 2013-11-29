@@ -72,7 +72,10 @@
 								 <div id="header" class="pure-u-1">
 
 										 <div style="float: right; margin: 10px;">
-												 <!--	<button class="g-signin"
+												 
+												 <input id = "state" type="hidden" value="@state" />
+						@if(!check){
+												<button class="g-signin"
 														 data-scope="https://www.googleapis.com/auth/plus.login"
 														 data-requestvisibleactions="http://schemas.google.com/AddActivity"
 														 data-clientId="@CLINET_ID"
@@ -80,10 +83,9 @@
 														 data-callback="onSignInCallback"
 														 data-theme="dark"
 														 data-cookiepolicy="single_host_origin">
-												 </button>--> 
-												 
-												 <input id = "state" type="hidden" ng-model="state" value="@state">
-						@if(!check){<a href="#loginModal" role="button" class="pure-button pure-button-secondary login" data-toggle="modal" >
+													 </button>
+						
+						<a href="#loginModal" role="button" class="pure-button pure-button-secondary login" data-toggle="modal" >
 	Login </a>}else{
 												<!--logout ��ư�� ng-show= !logined 
 												 login ��ư�� ng-show = logined �߰� �� ��ư �����-->
