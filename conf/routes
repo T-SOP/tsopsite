@@ -19,9 +19,15 @@ GET		/rest/member				controllers.Member.index
 
 ####################################################################################################
 # Login page
+POST     /login                      controllers.Login.login
+POST    /connect                   controllers.Login.connect(state : String)
+POST     /disconnect                 controllers.Login.disconnect
+GET     /disconnect                 controllers.Login.disconnect
+
 GET     /login                      securesocial.controllers.LoginPage.login
 GET     /logout                     securesocial.controllers.LoginPage.logout
-GET		/logout_sessionclear	    controllers.Application.sessionclear
+
+#GET	/logout_sessionclear	    controllers.Application.sessionclear
 
 # User Registration and password handling (only needed if you are using UsernamePasswordProvider)
 GET     /signup                     securesocial.controllers.Registration.startSignUp
