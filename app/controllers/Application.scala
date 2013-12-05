@@ -39,22 +39,40 @@ object Application extends Controller with securesocial.core.SecureSocial {
    */
 
   def index = Action { request =>
-  request.session.get("token").map { token =>{
-    val state: String = new BigInteger(130, new SecureRandom()).toString(32);
-   	println(state);Ok(views.html.index(CLIENT_ID , true , state )).withSession(
-      request.session + ("state" -> state)
-    )
+	  request.session.get("token").map { token =>{
+	    val state: String = new BigInteger(130, new SecureRandom()).toString(32);
+	   	println(state);Ok(views.html.index(CLIENT_ID , true , state )).withSession(
+	      request.session + ("state" -> state)
+	    )
+	  }
+	  }.getOrElse {
+	    println("token not yet");
+	    val state: String = new BigInteger(130, new SecureRandom()).toString(32);
+	    Ok(views.html.index(CLIENT_ID , false , state )).withSession(
+	      request.session + ("state" -> state)
+	    )
+	  }
   }
-  }.getOrElse {
-    println("token not yet");
-    val state: String = new BigInteger(130, new SecureRandom()).toString(32);
-    Ok(views.html.index(CLIENT_ID , false , state )).withSession(
-      request.session + ("state" -> state)
-    )
-  }
-  }
+  
   def onepage_index = Action{ 
-    Ok( views.html.onepage_index("test","test") );
+    val state: String = new BigInteger(130, new SecureRandom()).toString(32);
+    Ok( views.html.onepage_index("test","test", state) );
+  }
+  
+  def login = Action{
+    request =>
+	  request.session.get("token").map { token =>{
+	    val state: String = new BigInteger(130, new SecureRandom()).toString(32);
+	   		Ok(views.html.login(CLIENT_ID , true , state )).withSession(
+	   			request.session + ("state" -> state)
+	   		)
+	  }
+	  }.getOrElse {
+	    val state: String = new BigInteger(130, new SecureRandom()).toString(32);
+	    Ok(views.html.login(CLIENT_ID , false , state )).withSession(
+	      request.session + ("state" -> state)
+	    )
+	  }
   }
 }
 // An Authorization implementation that only authorizes uses that logged in using twitter

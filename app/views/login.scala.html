@@ -1,0 +1,97 @@
+
+@(message: String, check: Boolean ,  state: String)
+@stylesheets = {
+<link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")"/>
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css" />   
+<link rel="stylesheet" href="@routes.Assets.at("stylesheets/modal.css")" />       
+<link href="@routes.Assets.at("stylesheets/font-awesome-4.0.1/css/font-awesome.min.css")" rel="stylesheet" />
+<link rel="stylesheet" href="@routes.Assets.at("stylesheets/gallery.css")" />
+<link rel="stylesheet" href="@routes.Assets.at("stylesheets/blog.css")" />
+<link rel="stylesheet" href="@routes.Assets.at("stylesheets/main.css")" />   
+}
+
+@helper.requireJs(core = routes.Assets.at("javascripts/require.js").url, module = routes.Assets.at("javascripts/login/main").url)
+@title = { Login }
+
+<!DOCTYPE html>
+
+<html ng-app="Tsop">
+<head>
+	<title>@title</title>
+	@stylesheets
+	<script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+			(function() {
+			 var po = document.createElement('script');
+			 po.type = 'text/javascript'; po.async = true;
+			 po.src = 'https://plus.google.com/js/client:plusone.js';
+			 var s = document.getElementsByTagName('script')[0];
+			 s.parentNode.insertBefore(po, s);
+			 })();
+			
+	</script>
+	<style>
+
+		div.header {
+				min-height: 80px;
+				margin: 0;
+				color: #333;
+				padding: 1em 2em;
+				text-align: center;
+				border-bottom: 1px solid #eee;
+				background: #fff;
+		}
+
+		div#home,div#menu,div#contacts,div#about {
+				height: calc(100% - 205px);
+		}
+
+		div#main {
+				height: 100%;
+		}
+
+		.pure-g>div {
+				-webkit-box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				box-sizing: border-box;
+		}
+
+		.l-box {
+				padding: 1em;
+		}
+	</style>
+</head>
+ <body ng-controller="TsopCtrl">
+		 <div class="pure-g-r" id="layout">
+			 <div class="pure-u-1">
+				 <div id="header" class="pure-u-1">
+					 <div style="float: right; margin: 10px;">
+						<input id = "state" type="hidden" value="@state" />
+					 	@if(!check){
+							<button class="g-signin"
+									data-scope="https://www.googleapis.com/auth/plus.login"
+									data-requestvisibleactions="http://schemas.google.com/AddActivity"
+									data-clientId="@message"
+									data-accesstype="offline"
+									data-callback="onSignInCallback"
+									data-theme="dark"
+									data-cookiepolicy="single_host_origin">
+							</button>
+						}else{
+			 				<button ng-click="logout()" class="pure-button pure-button-warning logout">logout</button>
+			 			}	 
+					 </div>
+				 </div>
+			 </div>
+		 </div>
+ </body>
+ <script type="text/javascript">
+ 	var CtrlScope = null;
+	 function onSignInCallback(authResult){
+		 console.log( authResult );
+		 var scope = CtrlScope;//angular.element(document.getElementsByClassName('login')[0]).scope();
+		 scope.login(authResult);
+		 document.getElementsByClassName('login_modal_close')[0].click()
+	 }
+</script>
+ </html>

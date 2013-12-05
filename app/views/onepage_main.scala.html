@@ -1,8 +1,19 @@
-@(title: String, stylesheets : Html = Html(""), scripts: Html = Html(""))(CLINET_ID: String, username: String)
+@(title: String, stylesheets : Html = Html(""), scripts: Html = Html(""))(CLINET_ID: String, username: String, state: String)
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app='Tsop_onepage'>
 <head>
     <title>@title</title>
+    <script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+			(function() {
+			 var po = document.createElement('script');
+			 po.type = 'text/javascript'; po.async = true;
+			 po.src = 'https://plus.google.com/js/client:plusone.js';
+			 var s = document.getElementsByTagName('script')[0];
+			 s.parentNode.insertBefore(po, s);
+			 })();
+			
+	</script>
 
 <!--
  /$$$$$$$$ /$$                        /$$$$$$   /$$                                                    /$$$$$$ 
@@ -53,7 +64,8 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
         <![endif]-->
     </head>
-    <body ng-app='Tsop_onepage' ng-controller='TsopOnepageCtrl'>
+    <body  ng-controller='TsopOnepageCtrl'>
+    	<input id = "state" type="hidden" value="@state" />
         <div class="navbar navbar-default navbar-fixed-top" role="navigation">
             <div class="container">
                 <div class="navbar-header">
@@ -168,5 +180,13 @@
     </div>
 </section>
 <!-- vendor script -->
+ <script type="text/javascript">
+ 	var CtrlScope = null;
+	 function onSignInCallback(authResult){
+		 var scope = CtrlScope;//angular.element(document.getElementsByClassName('login')[0]).scope();
+		 scope.login(authResult);
+		 document.getElementsByClassName('login_modal_close')[0].click()
+	 }
+</script>
 </body>
 </html>

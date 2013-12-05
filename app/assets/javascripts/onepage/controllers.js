@@ -9,23 +9,36 @@ define(function() {
 			console.log( "controllers  init " );
 			
 			// Tsop Main Ctrl
-			module.controller('TsopOnepageCtrl', ['$scope', function($scope) {
+			module.controller('TsopOnepageCtrl', ['$scope', 'HomeSrvc', function($scope,HomeSevc) {
 
+				CtrlScope = $scope;
+				
+				//this is credentail var
+				$scope.user = {name : "", img : "", aboutMe : ""};
 
-					//this is credentail var
-					/*  일단 로그인 로직 삭제
-					$scope.logined = true;
-					console.log('tsop');
-					$scope.test = 'tsop';
-					$scope.login = function(authResult){
-							console.log(authResult);
-							console.log('login click');
-					}
-					$scope.logout = function(){
-							console.log(HomeSevc());
-							console.log('logout click');
-					}
-					*/
+			    $scope.login = function(authResult){
+					HomeSevc().connect(authResult.code);    
+				}
+			    
+			    $scope.logout = function(){			
+			    	HomeSevc().logout();
+				}
+
+			    $scope.renderProfile = function(code){
+					var request = gapi.client.plus.people.get({'userId' : 'me'});
+					request.execute( function(profile){
+					    $scope.setUser(profile);
+					    var user = {};
+					    user['name'] = profile.displayName;
+					    user['image'] = profile.image.url;
+					    user['aboutMe'] = profile.aboutMe;
+					    console.log(HomeSevc().login(user));
+					});
+
+				    }
+				    $scope.setUser = function(profile){
+					console.log(profile);
+			    }
 
 			}]);
 			
